@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liste des todos</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>hello</h1>
+    <h1>liste des todos</h1>
+    <a href="/add" class="btn">Ajouter une todo</a>
+    <table>
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Priorité</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% todos.forEach(todo => { %>
+      <tr>
+        <td><%= todo.nom %></td>
+        <td><%= todo.description %></td>
+        <td><%= todo.date %></td>
+        <td>
+          <%= 
+            todo.priorite == 1 ? '🟢 Faible' :
+            todo.priorite == 2 ? '🟠 Moyenne' :
+            '🔴 Haute'
+          %>
+        </td>
+        <td>
+            <a href="/edit/<%= todo.id %>">Modifier</a>
+            <a class="btn-delete" href="/delete/<%= todo.id %>">Supprimer</a>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<script>
+    document.querySelectorAll(".btn-delete").forEach(btn=>{
+        btn.addEventListener("click",(e)=>{
+            if(confirm("Etes vous sur de vouloir effacer cette tache ?")===false){
+                 e.preventDefault()
+            }
+        })})
+</script>
 </body>
 </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mettre a jour une todo</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <a href="/">← Retour</a>
+  <h1>Modifier une tâche</h1>
+
+  <form method="POST" action="/update/<%= todo.id %>">
+
+    <input name="nom" value="<%= todo.nom %>" required />
+
+    <input name="description" value="<%= todo.description %>" required />
+
+
+    <input type="date" name="date" value="<%= todo.date %>" required />
+
+    <select name="priorite">
+      <option value="1" <%=todo.priorite==1 ? 'selected' : '' %>>Faible</option>
+      <option value="2" <%=todo.priorite==2 ? 'selected' : '' %>>Moyenne</option>
+      <option value="3" <%=todo.priorite==3 ? 'selected' : '' %>>Haute</option>
+    </select>
+
+    <button>Mettre à jour</button>
+  </form>
+
+
+</body>
+
+</html>

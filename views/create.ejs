@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer une todo</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Ajouter une tâche</h1>
+
+    <form method="POST" action="/add">
+    <input name="nom" placeholder="Nom" required />
+    <input name="description" placeholder="Description" required />
+    <input name="date" type="date" required />
+    
+    <select name="priorite">
+        <option value="1">Faible</option>
+        <option value="2">Moyenne</option>
+        <option value="3">Haute</option>
+    </select>
+
+    <input class='btn' type="submit" value="Ajouter">
+</form>  
+</body>
+</html>
